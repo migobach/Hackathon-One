@@ -1,0 +1,8 @@
+<h1><%= @comment.id ? 'Edit Comment' : 'Create Comment' %></h1>
+<hr />
+<%= form_for [@movie, @comment] do |f| %>
+ <%= f.label :body %>
+ <%= f.text_field :body, required: true, autofocus: true %>
+ <br />
+ <%= f.submit %>
+<% end %>
