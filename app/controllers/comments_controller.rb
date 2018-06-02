@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_user
-  before_action :comment, only: [:show, :edit, :update, :destroy]
+  before_action :set_comment, only: [:show, :edit, :update, :destroy]
  
   def index
     @comments = @movie.comments
@@ -22,10 +22,8 @@ class CommentsController < ApplicationController
     @comment = @movie.comments.new(comment_params)
     if @comment.save
       redirect_to [@movie]
-      binding.pry
     else
       render :form
-      binding.pry
     end
   end
 
@@ -39,20 +37,20 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
-    redirect_to user_comments_path(@movie)
+    redirect_to [@movie]
   end
 
   private
 
-  def set_user
-    @movie = Movie.find(params[:movie_id])
-  end
+    def set_user
+      @movie = Movie.find(params[:movie_id])
+    end
 
-  def set_comment
-    @comment = Comment.find(params[:id])
-  end
+    def set_comment
+      @comment = Comment.find(params[:id])
+    end
 
-  def comment_params
-    params.require(:comment).permit(:body)
-  end
+    def comment_params
+      params.require(:comment).permit(:body)
+    end
 end

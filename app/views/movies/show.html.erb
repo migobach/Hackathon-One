@@ -6,5 +6,19 @@
 <a href="<%= @movie.description %>">Click here for description</a>
 <br />
 <%= content_tag(:iframe, '', src:@movie.trailer, width: 560, height: 315, frameborder: 0) %>
-
+<br />
 <%= link_to 'Add Comment', new_movie_comment_path(@movie) %>
+
+
+<h1>Comments</h1>
+
+<ul>
+<% @movie.comments.each do |comment| %>
+  <li>
+    <%= comment.body %>
+    <%= link_to 'Edit', edit_movie_comment_path(@movie, comment) %>
+    <%= link_to 'Delete', movie_comment_path(@movie.id, comment.id), method: :delete %>
+  </li>
+<% end %>
+</ul>
+
