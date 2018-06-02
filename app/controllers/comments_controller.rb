@@ -3,14 +3,14 @@ class CommentsController < ApplicationController
   before_action :comment, only: [:show, :edit, :update, :destroy]
  
   def index
-    @comments = @user.comments
+    @comments = @movie.comments
   end
 
   def show
   end
 
   def new
-    @comment = @user.comments.new
+    @comment = @movie.comments.new
     render :form
   end
 
@@ -19,17 +19,19 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = @user.comment.new(comment_params)
+    @comment = @movie.comments.new(comment_params)
     if @comment.save
-      redirect_to [@user, @comment]
+      redirect_to [@movie]
+      binding.pry
     else
       render :form
+      binding.pry
     end
   end
 
   def update
     if @comment.update(comment_params)
-      redirect_to [@user, @comment]
+      redirect_to [@movie]
     else
       render :form
     end
@@ -37,13 +39,13 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
-    redirect_to user_comments_path(@user)
+    redirect_to user_comments_path(@movie)
   end
 
   private
 
   def set_user
-    @user = User.find(params[:user_id])
+    @movie = Movie.find(params[:movie_id])
   end
 
   def set_comment

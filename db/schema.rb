@@ -18,11 +18,9 @@ ActiveRecord::Schema.define(version: 2018_06_02_172654) do
   create_table "comments", force: :cascade do |t|
     t.string "body"
     t.bigint "movie_id"
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["movie_id"], name: "index_comments_on_movie_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "movies", force: :cascade do |t|
@@ -54,5 +52,4 @@ ActiveRecord::Schema.define(version: 2018_06_02_172654) do
   end
 
   add_foreign_key "comments", "movies"
-  add_foreign_key "comments", "users"
 end

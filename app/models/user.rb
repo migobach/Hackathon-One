@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :comments
   has_many :movies, :through => :comments, :dependent => :destroy 
+  accepts_nested_attributes_for :comments
 end
