@@ -7,6 +7,8 @@ class CreateMovies < ActiveRecord::Migration[5.2]
       t.string :description
       t.string :trailer
 
+      
+
       t.timestamps
     end
   end

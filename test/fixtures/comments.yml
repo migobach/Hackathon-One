@@ -2,6 +2,10 @@
 
 one:
   body: MyString
+  movie: one
+  user: one
 
 two:
   body: MyString
+  movie: two
+  user: two
