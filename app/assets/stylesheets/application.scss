@@ -1,4 +1,5 @@
 @import "semantic-ui";
+@import "flash";
 
 .video-container {
   position: relative;
@@ -17,7 +18,13 @@
 .nav 
 {
    background-color: lightblue;
-   display: inline-block;
+   display: flex;
+   align-items:center;
+   justify-content: center;
+   min-height: 100px; 
    min-width: 100%;
    border: 3px solid light-gray;
+}
+.ui .black .basic .button {
+  margin-left: 50px;
 }

@@ -1,4 +1,7 @@
-<div class="nav" >
-   <%= link_to 'Home', root_path %>
-   <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
+
+<div class="ui container">
+  <div class="ui two item menu" >
+    <button class="item"><%= link_to 'Home', root_path %></button>
+    <button class="item"><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></button>
+  </div>
 </div>

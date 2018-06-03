@@ -3,16 +3,16 @@
 <p><%= @movie.genre %></p>
 <p><%= @movie.duration %></p>
 
-<a href="<%= @movie.description %>">Click here for description</a>
+<a href="<%= @movie.description %>" target="_blank">Click here for description</a>
 <br />
   <div class="video-container">
     <%= content_tag(:iframe, '', src:@movie.trailer, width: 560, height: 315, frameborder: 0) %>
   </div>
 <br />
+
 <%= link_to 'Add Comment', new_movie_comment_path(@movie) %>
 
-
-
+<div class="ui container">
   <h1>Comments</h1>
 
   <ul>
@@ -24,4 +24,5 @@
     </li>
   <% end %>
   </ul>
+</div>
 
