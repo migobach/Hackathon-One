@@ -7,6 +7,11 @@ class MoviesController < ApplicationController
   def show
     @movie = Movie.find(params[:id])
   end
+
+  # def destroy
+  #   @movie.destroy  
+  #     redirect_to root_path
+  # end
   
   def like
     if @movie.like.nil?

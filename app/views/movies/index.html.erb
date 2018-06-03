@@ -1,11 +1,28 @@
 <h1>Welcome <%= current_user.username %></h1>
 
 
-    <ul> 
-    <% @movies.each do |movie| %>
-      <li>
-        <%= link_to movie.title, movie %>
-      </li>
-    <% end %>
-    </ul>
+<div class="ui cards">
+<% @movies.each do |movie| %>
+    <div class="ui card">
+      <%= content_tag(:iframe, '', src:movie.trailer, width: 280, height: 157, frameborder: 0) %>
+        <div class="content">
+          <%= link_to "#{movie.title}", movie, class: "header" %>
+          <div class="extra content">
+            <div class="ui two buttons">
+              <div class="ui basic red button">
+                <%= link_to 'Delete', movie_path(movie), method: :delete %>
+              </div>
+              <div class="ui basic green button">
+                <%= link_to 'View', movie_path(movie) %>
+              </div>
+            </div>
+          </div>
+        </div>
+    <div>
+<% end %>
+</div>
 
+
+
+
+        
